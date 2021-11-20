@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>How to use js</title>
+    <script src="jquery-1.12.4.min.js"></script>
+    <!--this js will replace html script-->
+    <script src="checkbox/c1.js"></script>
 </head>
 <body>
 
 <ul>
+    <li><input type="checkbox" name="ids" value="funnyBox" onclick="chooseOrUnpickup()">0</li>
     <li><input type="checkbox" name="ids">1</li>
     <li><input type="checkbox" name="ids">2</li>
     <li><input type="checkbox" name="ids">3</li>
@@ -15,9 +19,66 @@
 
 <button id="btn1">button1</button>
 <button id="btn2">button2</button>
+<button id="btn3">button3(make as a common checkbox and will select all or drop all selected)</button>
+<button id="btn4">button4(alert checked)</button>
+<button id="btn5" onclick="chooseOrUnpickupOnBtn()">button5(chooseOrUnpickup)</button>
 
 <script>
 
+
+    $("#btn4").click(checkedSum);
+    //testok
+    function checkedSum(){
+        console.log($('input:checkbox:checked').length)
+    }
+
+    $("#btn3").click(chooseOrUnpickup);
+
+    //testok
+    // function chooseOrUnpickup(){
+    //     //what is the checkbox index 0 checked is , the follow checkbox is the same
+    //     //testok
+    //     console.log("all checkbox length:"+$('input[type=checkbox]').length)
+    //     console.log($('input[type=checkbox]')[0].value)
+    //
+    //     console.log($('input:checkbox:checked').length)
+    //     console.log($('input[type=checkbox]')[0].checked)
+    //
+    //     //then I will let the checkbox implements toggle model
+    //
+    //     //if element checkbox at position 0 index and it already checked,
+    //     // then release them all to unchecked (but onclick event function is otherwise)
+    //     if (($('input[type=checkbox]')[0].checked)){
+    //         chooseCbox();
+    //     }else{
+    //         unpickCbox();
+    //     }
+    // }
+
+
+    //testok belows
+
+    $("#btn1").click(chooseCbox);
+
+    // function chooseCbox(){
+    //     console.log($('input[type=checkbox]').length)
+    //     console.log("chooseCbox")
+    //     $.each($('input:checkbox'),function(){
+    //         // let checkBoxArr = $('input[type=checkbox]');
+    //         $(this).prop("checked", true);
+    //     })
+    // }
+    //
+    // $("#btn2").click(unpickCbox);
+    //
+    // function unpickCbox(){
+    //     console.log($('input[type=checkbox]').length)
+    //     console.log("unpickCbox")
+    //     $.each($('input:checkbox'),function(){
+    //         // let checkBoxArr = $('input[type=checkbox]');
+    //         $(this).removeAttr("checked");
+    //     })
+    // }
 </script>
 
 </body>
